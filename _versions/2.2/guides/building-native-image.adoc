@@ -671,10 +671,10 @@ cd target/native-image
 docker run \
   -it \
   --rm \
-  --v $(pwd):/work <1>
-  -w /work <2>
+  -v $(pwd):/work <1> \
+  -w /work <2> \
   --entrypoint bin/sh \
-  quay.io/quarkus/ubi-quarkus-native-image:{graalvm-flavor} \ <3>
+  quay.io/quarkus/ubi-quarkus-native-image:{graalvm-flavor} <3> \
   -c "native-image $(cat native-image.args) -J-Xmx4g" <4>
 ----
 
